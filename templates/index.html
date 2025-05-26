@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Performance Test - Tickets</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }
+        h1, h2 { color: #333; }
+        table { width: 100%; border-collapse: collapse; background: #fff; margin-bottom: 40px; }
+        th, td { padding: 10px; border-bottom: 1px solid #ddd; }
+        th { background: #007BFF; color: white; }
+        tr:hover { background: #f1f1f1; }
+    </style>
+</head>
+<body>
+    <h1>Liste des Tickets</h1>
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Title</th><th>Status</th><th>User</th></tr>
+        </thead>
+        <tbody>
+        {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.id }}</td>
+                <td>{{ ticket.title }}</td>
+                <td>{{ ticket.status }}</td>
+                <td>{{ ticket.username }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Nombre de tickets par utilisateur</h2>
+    <table>
+        <thead>
+            <tr><th>User</th><th>Ticket Count</th></tr>
+        </thead>
+        <tbody>
+        {% for count in counts %}
+            <tr>
+                <td>{{ count.user }}</td>
+                <td>{{ count.count }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
